@@ -1,9 +1,5 @@
 import styles from 'styled-components'
 
-type Props = {
-  img: string
-}
-
 export const Card = styles.div`
   margin-bottom: 48px;
   position: relative;

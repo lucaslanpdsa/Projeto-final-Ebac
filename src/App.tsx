@@ -1,4 +1,3 @@
-import Home from './routes/Home'
 import GlobalStyle from './styles/styles'
 
 function App() {
