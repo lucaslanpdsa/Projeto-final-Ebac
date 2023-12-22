@@ -3,6 +3,7 @@ import styles from 'styled-components'
 export const Card = styles.div`
   margin-bottom: 48px;
   position: relative;
+  font-weight: 700;
 `
 
 export const Button = styles.a`
@@ -10,6 +11,7 @@ export const Button = styles.a`
     background-color: rgba(230, 103, 103, 1);
     padding: 4px 6px;
     display: inline-block;
+    font-size: 16px;
 `
 
 export const Tag = styles.span`
@@ -25,6 +27,7 @@ export const Tags = styles.div`
   position: absolute;
   right: 16px;
   top: 16px;
+  font-size: 12px;
 `
 
 export const Texto = styles.div`
@@ -38,16 +41,23 @@ export const Texto = styles.div`
     justify-content: space-between;
     align-items: center;
 
+    h2{
+      font-size: 18px;
+      line-height: 21px;
+    }
+
     span{
       display: flex;
       align-items: center;
       gap: 8px;
-      font-size: 18px;
-      font-Weight: 700;
     }
   }
 `
 
 export const Descricao = styles.p`
-    margin: 16px 0;
+  margin: 16px 0;
+  font-family: Roboto;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 22px;
 `

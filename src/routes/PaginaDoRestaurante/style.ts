@@ -1,5 +1,5 @@
 import styles from "styled-components";
-import vector from '../../assets/Vector.png'
+import vector from '../../assets/vector.png'
 
 export const Header = styles.header`
   width: 100%;

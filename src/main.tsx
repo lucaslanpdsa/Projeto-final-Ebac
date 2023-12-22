@@ -5,11 +5,16 @@ import './index.css'
 
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import Home from './routes/Home/index.tsx'
+import PaginaDoRestaurante from './components/PaginaDoRestaurante'
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Home />
+  },
+  {
+    path: "restaurante",
+    element: <PaginaDoRestaurante />
   }
 ])
 
