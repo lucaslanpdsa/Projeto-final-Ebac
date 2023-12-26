@@ -1,5 +1,4 @@
 import styles from "styled-components";
-import vector from '../../assets/Vector.png'
 
 export const FooterStyle = styles.footer`
   width: 100%;
