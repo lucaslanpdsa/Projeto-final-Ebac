@@ -27,7 +27,7 @@ const RestaurantCard = ({ img, Edestaque, tipoDeComida, title, nota, descricao }
           <span>{nota} <img src={estrela} /></span>
         </div>
         <Descricao>{descricao}</Descricao>
-        <Button href="">Saiba mais</Button>
+        <Button href="restaurante">Saiba mais</Button>
       </Texto>
     </Card>
   )
