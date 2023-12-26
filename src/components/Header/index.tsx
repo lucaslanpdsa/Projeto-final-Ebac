@@ -7,7 +7,7 @@ const Header = () => {
       <S.Header>
         <div className="container">
           <img src={logo} alt="" />
-          <S.Title>Viva experiências gastronômicasno conforto da sua casa</S.Title>
+          <S.Title>Viva experiências gastronômicas no conforto da sua casa</S.Title>
         </div>
       </S.Header>
     </>
