@@ -13,7 +13,7 @@ type Props = {
 
 const RestaurantCard = ({ img, Edestaque, tipoDeComida, title, nota, descricao }: Props) => {
   return (
-    <Card>
+    <Card href='/restaurante'>
       <div>
         <img src={img} />
         <Tags>

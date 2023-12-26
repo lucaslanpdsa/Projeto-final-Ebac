@@ -1,6 +1,6 @@
 import styles from 'styled-components'
 
-export const Card = styles.div`
+export const Card = styles.a`
   margin-bottom: 48px;
   position: relative;
   font-weight: 700;

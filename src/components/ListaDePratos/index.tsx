@@ -1,49 +1,16 @@
-import prato1 from '../../assets/Prato1.png'
+import { PratosCards } from '../../models/PratosCard'
+import Card from '../PratosCard'
 import { Background, Lista } from './styles'
 
 const ListaDePratos = () => {
-
   return (
-    <Background className='background'>
-      <Lista className='container'>
-        <div className='pratoCard'>
-          <img src={prato1} />
-          <h3>Pizza Marguerita</h3>
-          <p>A clássica Marguerita: molho de tomate suculento, mussarela derretida, manjericão fresco e um toque de azeite. Sabor e simplicidade!</p>
-          <button>Adicionar ao carrinho</button>
-        </div>
-        <div className='pratoCard'>
-          <img src={prato1} />
-          <h3>Pizza Marguerita</h3>
-          <p>A clássica Marguerita: molho de tomate suculento, mussarela derretida, manjericão fresco e um toque de azeite. Sabor e simplicidade!</p>
-          <button>Adicionar ao carrinho</button>
-        </div>
-        <div className='pratoCard'>
-          <img src={prato1} />
-          <h3>Pizza Marguerita</h3>
-          <p>A clássica Marguerita: molho de tomate suculento, mussarela derretida, manjericão fresco e um toque de azeite. Sabor e simplicidade!</p>
-          <button>Adicionar ao carrinho</button>
-        </div>
-        <div className='pratoCard'>
-          <img src={prato1} />
-          <h3>Pizza Marguerita</h3>
-          <p>A clássica Marguerita: molho de tomate suculento, mussarela derretida, manjericão fresco e um toque de azeite. Sabor e simplicidade!</p>
-          <button>Adicionar ao carrinho</button>
-        </div>
-        <div className='pratoCard'>
-          <img src={prato1} />
-          <h3>Pizza Marguerita</h3>
-          <p>A clássica Marguerita: molho de tomate suculento, mussarela derretida, manjericão fresco e um toque de azeite. Sabor e simplicidade!</p>
-          <button>Adicionar ao carrinho</button>
-        </div>
-        <div className='pratoCard'>
-          <img src={prato1} />
-          <h3>Pizza Marguerita</h3>
-          <p>A clássica Marguerita: molho de tomate suculento, mussarela derretida, manjericão fresco e um toque de azeite. Sabor e simplicidade!</p>
-          <button>Adicionar ao carrinho</button>
-        </div>
-      </Lista>
-    </Background>
+    <>
+      < Background >
+        <Lista className='container'>
+          {PratosCards.map((Prato, i) => <Card key={i} img={Prato.img} nomeDoPrato={Prato.nomeDoPrato} descricao={Prato.descricao} />)}
+        </Lista>
+      </Background >
+    </>
   )
 }
 

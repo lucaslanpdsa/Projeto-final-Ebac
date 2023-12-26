@@ -1,5 +1,5 @@
 import RestaurantCard from '../../components/RestaurantCard'
-import { cards } from '../../models/Card'
+import { cards } from '../../models/RestaurantCard'
 import { Lista } from './styles'
 
 function ListaDeRestaurantes() {
