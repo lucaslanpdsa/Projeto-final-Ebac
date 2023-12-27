@@ -1,13 +1,16 @@
 import { useState } from 'react'
-import { FechaModal, Pratocard, PratocardExpandido } from './style'
+import { FechaModal, Pratocard, PratocardExpandido, ButtonAdicionarAoCarrinho, ButtonFechar } from './style'
 
 type Props = {
   img: string
   nomeDoPrato: string
   descricao: string
+  descricaoCompleta: string
+  serveQuantasPessoas: string
+  preço: number
 }
 
-const Card = ({ img, nomeDoPrato, descricao }: Props) => {
+const Card = ({ img, nomeDoPrato, descricao, preço, descricaoCompleta, serveQuantasPessoas }: Props) => {
 
   const [expandido, setexpandido] = useState(true)
 
@@ -26,9 +29,12 @@ const Card = ({ img, nomeDoPrato, descricao }: Props) => {
             <img src={img} />
             <div>
               <h3>{nomeDoPrato}</h3>
-              <p>{descricao}</p>
-              <p>Serve: de 2 a 3 pessoas</p>
-              <button>Adicionar ao carrinho</button>
+              <div className="descricao">
+                <p>{descricaoCompleta}</p> <br />
+                <p>Serve: {serveQuantasPessoas} - R${preço.toFixed(2).toString().replace(".", ",")}</p>
+              </div>
+              <ButtonAdicionarAoCarrinho>Adicionar ao carrinho</ButtonAdicionarAoCarrinho>
+              <ButtonFechar className='btnfechar' onClick={() => { setexpandido(!expandido) }}>X</ButtonFechar>
             </div>
           </PratocardExpandido>
         </>

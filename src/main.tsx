@@ -5,7 +5,7 @@ import './index.css'
 
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import Home from './routes/Home/index.tsx'
-import PaginaDoRestaurante from './components/PaginaDoRestaurante'
+import PaginaDoRestaurante from './routes/PaginaDoRestaurante/index.tsx'
 
 const router = createBrowserRouter([
   {
@@ -13,7 +13,7 @@ const router = createBrowserRouter([
     element: <Home />
   },
   {
-    path: "restaurante",
+    path: "/restaurante/:id",
     element: <PaginaDoRestaurante />
   }
 ])

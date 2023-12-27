@@ -3,33 +3,35 @@ import { Card, Descricao, Tag, Tags, Texto } from './styles'
 import { Button } from './styles'
 
 type Props = {
-  img: string
-  Edestaque: Boolean
-  tipoDeComida: string
-  title: string
-  nota: number
-  descricao: string
+  titulo: string
+  destacado: Boolean
+  tipo: string
+  avaliação: number
+  descrição: string
+  capa: string
+  id: number
 }
 
-const RestaurantCard = ({ img, Edestaque, tipoDeComida, title, nota, descricao }: Props) => {
+const RestaurantCard = ({ titulo, destacado, tipo, avaliação, descrição, capa }: Props) => {
+  const rota = `/${titulo}`
   return (
     <Card href='/restaurante'>
       <div>
-        <img src={img} />
+        <img src={capa} />
         <Tags>
-          {Edestaque && <Tag>Destaque da semana</Tag>}
-          <Tag>{tipoDeComida}</Tag>
+          {destacado && <Tag>Destaque da semana</Tag>}
+          <Tag>{tipo}</Tag>
         </Tags>
       </div>
       <Texto>
         <div>
-          <h2>{title}</h2>
-          <span>{nota} <img src={estrela} /></span>
+          <h2>{titulo}</h2>
+          <span>{avaliação} <img src={estrela} /></span>
         </div>
-        <Descricao>{descricao}</Descricao>
-        <Button href="/restaurante">Saiba mais</Button>
+        <Descricao>{descrição}</Descricao>
+        <Button href='/restaurante/:id'>Saiba mais</Button>
       </Texto>
-    </Card>
+    </Card >
   )
 }
 

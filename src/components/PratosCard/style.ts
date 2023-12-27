@@ -31,7 +31,7 @@ export const FechaModal = styles.div`
 
 export const PratocardExpandido = styles.div`
   background-color: rgba(230, 103, 103, 1);
-  color:rgba(255, 235, 217, 1);
+  color: rgba(255, 255, 255, 1);
   z-index: 1;
   display: flex;
   position: absolute;
@@ -45,18 +45,36 @@ export const PratocardExpandido = styles.div`
     max-width: 280px
   };
 
-  p{
+  .descricao{
+    color:rgba(255, 255, 255, 1);
     margin: 16px 0;
-  }
 
-  button {
-    background-color: rgba(255, 235, 217, 1);
-    color: rgba(230, 103, 103, 1);
-    border: none;
-    padding: 4px 8px;
-    cursor: pointer;
+    p{
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 22px;
+    }
   }
 `
+export const ButtonAdicionarAoCarrinho = styles.button`
+  background-color: rgba(255, 235, 217, 1);
+  color: rgba(230, 103, 103, 1);
+  border: none;
+  padding: 4px 8px;
+  cursor: pointer;
+`
+
+export const ButtonFechar = styles.button`
+  color:rgba(255, 255, 255, 1);
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  background-color: inherit;
+  border: none;
+  font-size: 30px;
+  cursor: pointer;
+`
+
 
 
 

@@ -1,10 +1,24 @@
 import * as S from './styles'
 import logo from '../../assets/logo.png'
-import Footer from '../Footer'
-import ListaDePratos from '../ListaDePratos'
+import Footer from '../../components/Footer'
+import { useState } from 'react'
+import { useEffect } from 'react'
+import { useParams } from 'react-router-dom'
 
 const PaginaDoRestaurante = () => {
+
+  const [restaurants, setrestaurants] = useState([])
+
+  useEffect(() => {
+    fetch('https://fake-api-tau.vercel.app/api/efood/restaurantes')
+      .then((res) => res.json())
+      .then((res) => setrestaurants(res))
+  }, [])
+
+  console.log(restaurants)
+
   return (
+
     <>
       <S.Header>
         <div className="container">
@@ -19,7 +33,6 @@ const PaginaDoRestaurante = () => {
           <p className='titulo'>La Dolce Vita Trattoria</p>
         </div>
       </S.Banner>
-      <ListaDePratos />
       <Footer />
     </>
   )
