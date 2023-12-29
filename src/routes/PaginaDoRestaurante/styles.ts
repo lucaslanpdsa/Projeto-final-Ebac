@@ -52,7 +52,7 @@ export const RenderPratos = styles.div`
   }
 `
 
-export const Prato = styles.div`
+export const Prato = styles.ul`
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   column-gap: 32px;

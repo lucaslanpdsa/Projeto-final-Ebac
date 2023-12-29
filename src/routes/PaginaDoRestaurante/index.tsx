@@ -11,26 +11,29 @@ const PaginaDoRestaurante = () => {
 
   const { id } = useParams()
 
-  type restaurants = {
+  type cardapio = {
+    [x: string]: any
+    foto: string
+    preco: number
     id: number
-    titulo: string
-    destacado: Boolean
-    tipo: string
-    avaliacao: number
+    nome: string
     descricao: string
-    capa: string
-    cardapio?: []
+    porcao: string
   }
 
-  const [restaurantes, setrestaurantes] = useState<restaurants[]>([])
+  const [restaurante, setrestaurantes] = useState<cardapio>()
 
   useEffect(() => {
     fetch(`https://fake-api-tau.vercel.app/api/efood/restaurantes/${id}`)
       .then((res) => res.json())
       .then((res) => setrestaurantes(res))
-  }, [id])
+  }, [])
 
-  console.log(restaurantes)
+  if (!restaurante) {
+    return (
+      <h3>Carregando...</h3>
+    )
+  }
 
   return (
     <>
@@ -49,7 +52,7 @@ const PaginaDoRestaurante = () => {
       </S.Banner>
       <RenderPratos >
         <Prato className='container'>
-          {restaurantes.cardapio?.map((prato: any) => <PratosCard img={prato.foto} nomeDoPrato={prato.titulo} descricao={prato.descricao} descricaoCompleta={prato.descricao} serveQuantasPessoas={prato.porcao} preço={prato.preco} />)}
+          {restaurante.cardapio.map((prato: any) => <li key={prato.id}><PratosCard img={prato.foto} nomeDoPrato={prato.titulo} descricao={prato.descricao} descricaoCompleta={prato.descricao} serveQuantasPessoas={prato.porcao} preço={prato.preco} /></li>)}
         </Prato>
       </RenderPratos>
       <Footer />
