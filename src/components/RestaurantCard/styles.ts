@@ -6,6 +6,12 @@ export const Card = styles.a`
   font-weight: 700;
 `
 
+export const Capa = styles.img`
+  width: 100%;
+  height: 217px;
+  object-fit: cover;
+`
+
 export const Button = styles.a`
     color: rgba(255, 235, 217, 1);
     background-color: rgba(230, 103, 103, 1);

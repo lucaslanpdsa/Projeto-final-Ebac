@@ -1,4 +1,4 @@
-import Card from '../PratosCard'
+/*import Card from '../PratosCard'
 import { Background, Lista } from './styles'
 
 const ListaDePratos = () => {
@@ -13,4 +13,4 @@ const ListaDePratos = () => {
   )
 }
 
-export default ListaDePratos
+export default ListaDePratos */

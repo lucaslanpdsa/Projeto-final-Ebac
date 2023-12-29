@@ -1,23 +1,23 @@
 import estrela from '../../assets/estrela.png'
-import { Card, Descricao, Tag, Tags, Texto } from './styles'
+import { Capa, Card, Descricao, Tag, Tags, Texto } from './styles'
 import { Button } from './styles'
 
 type Props = {
   titulo: string
   destacado: Boolean
   tipo: string
-  avaliação: number
-  descrição: string
+  avaliacao: number
+  descricao: string
   capa: string
   id: number
 }
 
-const RestaurantCard = ({ titulo, destacado, tipo, avaliação, descrição, capa }: Props) => {
-  const rota = `/${titulo}`
+const RestaurantCard = ({ titulo, destacado, tipo, avaliacao, descricao, capa, id }: Props) => {
+  const href = `/restaurante/${id}`
   return (
     <Card href='/restaurante'>
       <div>
-        <img src={capa} />
+        <Capa src={capa} />
         <Tags>
           {destacado && <Tag>Destaque da semana</Tag>}
           <Tag>{tipo}</Tag>
@@ -26,10 +26,10 @@ const RestaurantCard = ({ titulo, destacado, tipo, avaliação, descrição, cap
       <Texto>
         <div>
           <h2>{titulo}</h2>
-          <span>{avaliação} <img src={estrela} /></span>
+          <div>{avaliacao} <img src={estrela} /></div>
         </div>
-        <Descricao>{descrição}</Descricao>
-        <Button href='/restaurante/:id'>Saiba mais</Button>
+        <Descricao>{descricao}</Descricao>
+        <Button href={href}>Saiba mais</Button>
       </Texto>
     </Card >
   )

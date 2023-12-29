@@ -5,8 +5,19 @@ export const Pratocard = styles.div`
   background-color: rgba(230, 103, 103, 1);
   color:rgba(255, 235, 217, 1);
 
+  img{
+    width:100%;
+    height: 217px;
+    object-fit: cover;
+  }
+
   p{
     margin: 8px 0;
+  }
+
+  .descricaoCard{
+    height: 88px;
+    overflow-y: hidden;
   }
 
   button{
@@ -34,7 +45,7 @@ export const PratocardExpandido = styles.div`
   color: rgba(255, 255, 255, 1);
   z-index: 1;
   display: flex;
-  position: absolute;
+  position: fixed;
   gap: 24px;
   padding: 32px;
   width: 1024px;

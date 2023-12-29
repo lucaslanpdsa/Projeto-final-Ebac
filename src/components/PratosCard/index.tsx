@@ -20,7 +20,7 @@ const Card = ({ img, nomeDoPrato, descricao, preço, descricaoCompleta, serveQua
         <Pratocard>
           <img src={img} />
           <h3>{nomeDoPrato}</h3>
-          <p>{descricao}</p>
+          <p className='descricaoCard'>{descricao}</p>
           <button onClick={() => { setexpandido(!expandido); console.log(expandido) }}>Mais detalhes</button>
         </Pratocard> :
         <>
