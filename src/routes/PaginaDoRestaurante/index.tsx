@@ -52,7 +52,7 @@ const PaginaDoRestaurante = () => {
       </S.Banner>
       <RenderPratos >
         <Prato className='container'>
-          {restaurante.cardapio.map((prato: any) => <li key={prato.id}><PratosCard img={prato.foto} nomeDoPrato={prato.titulo} descricao={prato.descricao} descricaoCompleta={prato.descricao} serveQuantasPessoas={prato.porcao} preço={prato.preco} /></li>)}
+          {restaurante.cardapio.map((prato: any) => <li key={prato.id}><PratosCard img={prato.foto} nomeDoPrato={prato.nome} descricao={prato.descricao} descricaoCompleta={prato.descricao} serveQuantasPessoas={prato.porcao} preço={prato.preco} /></li>)}
         </Prato>
       </RenderPratos>
       <Footer />

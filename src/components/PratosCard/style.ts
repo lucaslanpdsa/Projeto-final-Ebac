@@ -11,6 +11,11 @@ export const Pratocard = styles.div`
     object-fit: cover;
   }
 
+  h3{
+    margin: 8px 0;
+    font-weight: 900;
+  }
+
   p{
     margin: 8px 0;
   }

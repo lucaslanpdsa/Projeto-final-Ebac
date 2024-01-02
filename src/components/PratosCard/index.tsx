@@ -38,9 +38,9 @@ const Card = ({ img, nomeDoPrato, descricao, preço, descricaoCompleta, serveQua
               <h3>{nomeDoPrato}</h3>
               <div className="descricao">
                 <p>{descricaoCompleta}</p> <br />
-                <p>Serve: {serveQuantasPessoas} - R${preço.toFixed(2).toString().replace(".", ",")}</p>
+                <p>Serve: {serveQuantasPessoas}</p>
               </div>
-              <ButtonAdicionarAoCarrinho>Adicionar ao carrinho</ButtonAdicionarAoCarrinho>
+              <ButtonAdicionarAoCarrinho>Adicionar ao carrinho - R${preço.toFixed(2).toString().replace(".", ",")}</ButtonAdicionarAoCarrinho>
               <ButtonFechar className='btnfechar' onClick={() => { setexpandido(!expandido) }}>X</ButtonFechar>
             </div>
           </PratocardExpandido>
