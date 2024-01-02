@@ -50,7 +50,11 @@ export const PratocardExpandido = styles.div`
   padding: 32px;
   width: 1024px;
   height: 344px;
-  top: calc(50% - 140px);
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
 
   img{
     max-width: 280px

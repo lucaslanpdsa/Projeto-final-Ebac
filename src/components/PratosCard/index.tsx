@@ -14,6 +14,7 @@ const Card = ({ img, nomeDoPrato, descricao, preço, descricaoCompleta, serveQua
 
   const [expandido, setexpandido] = useState(true)
 
+
   return (
     <>
       {expandido == true ?
@@ -21,10 +22,16 @@ const Card = ({ img, nomeDoPrato, descricao, preço, descricaoCompleta, serveQua
           <img src={img} />
           <h3>{nomeDoPrato}</h3>
           <p className='descricaoCard'>{descricao}</p>
-          <button onClick={() => { setexpandido(!expandido); console.log(expandido) }}>Mais detalhes</button>
+          <button onClick={() => { setexpandido(!expandido) }}>Adicionar ao carrinho</button>
         </Pratocard> :
         <>
           <FechaModal onClick={() => { setexpandido(!expandido) }}></FechaModal>
+          <Pratocard>
+            <img src={img} />
+            <h3>{nomeDoPrato}</h3>
+            <p className='descricaoCard'>{descricao}</p>
+            <button>Mais detalhes</button>
+          </Pratocard>
           <PratocardExpandido>
             <img src={img} />
             <div>
