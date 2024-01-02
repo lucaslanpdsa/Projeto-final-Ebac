@@ -1,6 +1,6 @@
 import estrela from '../../assets/estrela.png'
 import { Capa, Card, Descricao, Tag, Tags, Texto } from './styles'
-import { Button } from './styles'
+import { Link } from 'react-router-dom'
 
 type Props = {
   titulo: string
@@ -29,7 +29,7 @@ const RestaurantCard = ({ titulo, destacado, tipo, avaliacao, descricao, capa, i
           <div>{avaliacao} <img src={estrela} /></div>
         </div>
         <Descricao>{descricao}</Descricao>
-        <Button href={href}>Saiba mais</Button>
+        <Link to={href} className='link'>Saiba mais</Link>
       </Texto>
     </Card >
   )

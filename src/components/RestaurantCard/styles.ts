@@ -12,14 +12,6 @@ export const Capa = styles.img`
   object-fit: cover;
 `
 
-export const Button = styles.a`
-    color: rgba(255, 235, 217, 1);
-    background-color: rgba(230, 103, 103, 1);
-    padding: 4px 6px;
-    display: inline-block;
-    font-size: 16px;
-`
-
 export const Tag = styles.span`
     color: rgba(255, 235, 217, 1);
     background-color: rgba(230, 103, 103, 1);
@@ -58,6 +50,13 @@ export const Texto = styles.div`
       gap: 8px;
     }
   }
+
+  .link{color: rgba(255, 235, 217, 1);
+    background-color: rgba(230, 103, 103, 1);
+    padding: 4px 6px;
+    display: inline-block;
+    font-size: 16px;
+    }
 `
 
 export const Descricao = styles.p`
