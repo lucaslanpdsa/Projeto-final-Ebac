@@ -6,8 +6,13 @@ import { useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 import PratosCard from '../../components/PratosCard'
 import { Prato, RenderPratos } from './styles'
+import { useSelector } from 'react-redux'
+import { RootReducer } from '../../store'
+import Carrinho from '../../components/Carrinho'
 
 const PaginaDoRestaurante = () => {
+  const { isOpen } = useSelector((state: RootReducer) => state.carrinho)
+  console.log(isOpen)
 
   const { id } = useParams()
 
@@ -56,6 +61,7 @@ const PaginaDoRestaurante = () => {
         </Prato>
       </RenderPratos>
       <Footer />
+      {isOpen && <Carrinho />}
     </>
   )
 }

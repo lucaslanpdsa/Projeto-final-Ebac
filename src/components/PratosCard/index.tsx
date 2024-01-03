@@ -10,6 +10,15 @@ type Props = {
   preço: number
 }
 
+export type Prato = {
+  img: string
+  nomeDoPrato: string
+  descricao: string
+  descricaoCompleta: string
+  serveQuantasPessoas: string
+  preço: number
+}
+
 const Card = ({ img, nomeDoPrato, descricao, preço, descricaoCompleta, serveQuantasPessoas }: Props) => {
 
   const [expandido, setexpandido] = useState(true)

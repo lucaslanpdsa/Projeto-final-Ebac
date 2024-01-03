@@ -13,7 +13,7 @@ type Props = {
 }
 
 const RestaurantCard = ({ titulo, destacado, tipo, avaliacao, descricao, capa, id }: Props) => {
-  const href = `/restaurante/${id}`
+
   return (
     <Card href='/restaurante'>
       <div>
@@ -29,7 +29,7 @@ const RestaurantCard = ({ titulo, destacado, tipo, avaliacao, descricao, capa, i
           <div>{avaliacao} <img src={estrela} /></div>
         </div>
         <Descricao>{descricao}</Descricao>
-        <Link to={href} className='link'>Saiba mais</Link>
+        <Link to={`/restaurante/${id}`} className='link'>Saiba mais</Link>
       </Texto>
     </Card >
   )

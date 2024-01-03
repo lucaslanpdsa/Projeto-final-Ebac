@@ -23,7 +23,10 @@ function ListaDeRestaurantes() {
 
   return (
     <Lista>
-      {restaurants.map((restaurant) => <RestaurantCard id={restaurant.id} titulo={restaurant.titulo} destacado={restaurant.destacado} tipo={restaurant.tipo} avaliacao={restaurant.avaliacao} capa={restaurant.capa} descricao={restaurant.descricao} />)}
+      {restaurants.map((restaurant) =>
+        <li key={restaurant.id}>
+          <RestaurantCard id={restaurant.id} titulo={restaurant.titulo} destacado={restaurant.destacado} tipo={restaurant.tipo} avaliacao={restaurant.avaliacao} capa={restaurant.capa} descricao={restaurant.descricao} />
+        </li>)}
     </Lista>
   )
 }
