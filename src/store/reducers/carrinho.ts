@@ -8,7 +8,7 @@ type carrinhoState = {
 
 const initialState: carrinhoState = {
   items: [],
-  isOpen: true,
+  isOpen: false,
 }
 
 const carrinhoSlice = createSlice({

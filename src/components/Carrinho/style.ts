@@ -34,7 +34,7 @@ export const Button = styled.button`
 `
 
 
-export const FundoPreto = styled.div`
+export const FundoPreto = styled.a`
   position: absolute;
   top: 0;
   left: 0;

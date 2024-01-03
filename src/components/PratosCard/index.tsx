@@ -1,5 +1,7 @@
 import { useState } from 'react'
 import { FechaModal, Pratocard, PratocardExpandido, ButtonAdicionarAoCarrinho, ButtonFechar } from './style'
+import { useDispatch } from 'react-redux'
+import { toogle } from "../../store/reducers/carrinho"
 
 type Props = {
   img: string
@@ -20,9 +22,18 @@ export type Prato = {
 }
 
 const Card = ({ img, nomeDoPrato, descricao, preço, descricaoCompleta, serveQuantasPessoas }: Props) => {
+  const Dispatch = useDispatch()
+
+  const opencarrinho = () => {
+    Dispatch(toogle())
+  }
+
+  const addCarrinho = () => {
+    opencarrinho()
+    setexpandido(!expandido)
+  }
 
   const [expandido, setexpandido] = useState(true)
-
 
   return (
     <>
@@ -49,7 +60,7 @@ const Card = ({ img, nomeDoPrato, descricao, preço, descricaoCompleta, serveQua
                 <p>{descricaoCompleta}</p> <br />
                 <p>Serve: {serveQuantasPessoas}</p>
               </div>
-              <ButtonAdicionarAoCarrinho>Adicionar ao carrinho - R${preço.toFixed(2).toString().replace(".", ",")}</ButtonAdicionarAoCarrinho>
+              <ButtonAdicionarAoCarrinho onClick={addCarrinho}>Adicionar ao carrinho - R${preço.toFixed(2).toString().replace(".", ",")}</ButtonAdicionarAoCarrinho>
               <ButtonFechar className='btnfechar' onClick={() => { setexpandido(!expandido) }}>X</ButtonFechar>
             </div>
           </PratocardExpandido>
