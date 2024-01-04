@@ -1,7 +1,7 @@
 import GlobalStyle from './styles/styles'
 
-import { Provider, useSelector } from 'react-redux'
-import { RootReducer, store } from './store'
+import { Provider } from 'react-redux'
+import { store } from './store'
 
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import Home from './routes/Home/index.tsx'

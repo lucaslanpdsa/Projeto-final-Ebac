@@ -3,7 +3,6 @@ import { Button, CarrinhoContainer, FundoPreto, ImgDoPrato, Lixeira, NomeEPreco,
 import { toogle } from "../../store/reducers/carrinho"
 import { RootReducer } from "../../store"
 import lixeira from '../../assets/lixeira.png'
-import { ReactElement, JSXElementConstructor, ReactNode } from "react"
 
 const Carrinho = () => {
   const Dispatch = useDispatch()
