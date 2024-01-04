@@ -25,7 +25,7 @@ const Carrinho = () => {
                 <ImgDoPrato src={item.foto} />
                 <NomeEPreco >
                   <h3>{item.nome}</h3>
-                  <p>{item.preco}</p>
+                  <p>R${item.preco.toFixed(2).toString().replace(".", ",")}</p>
                 </NomeEPreco>
                 <Lixeira src={lixeira} />
               </PratoNoCarrinho>
