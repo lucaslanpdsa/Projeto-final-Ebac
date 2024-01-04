@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const CarrinhoContainer = styled.li`
+export const CarrinhoContainer = styled.div`
   position: fixed;
   width: 100%;
   top: 0;
@@ -67,4 +67,5 @@ export const FundoPreto = styled.a`
   background-color: rgba(0, 0, 0, 0.8);
   height: 100%;
   width: 100%;
+  opacity: 80%;
 `

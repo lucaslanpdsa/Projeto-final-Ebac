@@ -3,6 +3,7 @@ import { Button, CarrinhoContainer, FundoPreto, ImgDoPrato, Lixeira, NomeEPreco,
 import { toogle } from "../../store/reducers/carrinho"
 import { RootReducer } from "../../store"
 import lixeira from '../../assets/lixeira.png'
+import { ReactElement, JSXElementConstructor, ReactNode } from "react"
 
 const Carrinho = () => {
   const Dispatch = useDispatch()
@@ -14,13 +15,20 @@ const Carrinho = () => {
   const { items } = useSelector((state: RootReducer) => state.carrinho)
   console.log(items.map((item) => { item.nome }))
 
+  let valorTotal: number = 0
+
+  function getValorTotal(preco: number) {
+    valorTotal += preco
+  }
+
   return (
-    <ul>
-      {items.map((item) => {
-        return (
-          < CarrinhoContainer className="carr" >
-            <FundoPreto onClick={opencarrinho}></FundoPreto>
-            <aside>
+    < CarrinhoContainer className="carr" >
+      <FundoPreto onClick={opencarrinho}></FundoPreto>
+      <aside>
+        <ul>
+          {items.map((item) => {
+            getValorTotal(item.preco)
+            return (
               <PratoNoCarrinho>
                 <ImgDoPrato src={item.foto} />
                 <NomeEPreco >
@@ -29,16 +37,16 @@ const Carrinho = () => {
                 </NomeEPreco>
                 <Lixeira src={lixeira} />
               </PratoNoCarrinho>
-              <Valor>
-                <p>valor total</p>
-                <span></span>
-              </Valor>
-              <Button >Continuar com a entrega</Button>
-            </aside>
-          </CarrinhoContainer >
-        )
-      })}
-    </ul>
+            )
+          })}
+        </ul>
+        <Valor>
+          <p>valor total</p>
+          <span>R${valorTotal.toFixed(2).toString().replace(".", ",")}</span>
+        </Valor>
+        <Button >Continuar com a entrega</Button>
+      </aside>
+    </CarrinhoContainer >
   )
 }
 
