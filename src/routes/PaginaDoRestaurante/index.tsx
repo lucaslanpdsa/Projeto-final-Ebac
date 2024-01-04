@@ -1,32 +1,37 @@
 import * as S from './styles'
 import logo from '../../assets/logo.png'
 import Footer from '../../components/Footer'
-import { useState } from 'react'
-import { useEffect } from 'react'
+import { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 import PratosCard from '../../components/PratosCard'
-import { Prato, RenderPratos } from './styles'
-import { useSelector } from 'react-redux'
+import { AbreCarrinho, Prato, RenderPratos } from './styles'
+import { useDispatch, useSelector } from 'react-redux'
 import { RootReducer } from '../../store'
 import Carrinho from '../../components/Carrinho'
+import { toogle } from '../../store/reducers/carrinho'
+
+export type Prato = {
+  cardapio: []
+  foto: string
+  nome: string
+  descricao: string
+  porcao: string
+  preco: number
+  id: number
+}
 
 const PaginaDoRestaurante = () => {
   const { isOpen } = useSelector((state: RootReducer) => state.carrinho)
-  console.log(isOpen)
+  const { items } = useSelector((state: RootReducer) => state.carrinho)
+  const Dispatch = useDispatch()
+
+  const opencarrinho = () => {
+    Dispatch(toogle())
+  }
 
   const { id } = useParams()
 
-  type cardapio = {
-    [x: string]: any
-    foto: string
-    preco: number
-    id: number
-    nome: string
-    descricao: string
-    porcao: string
-  }
-
-  const [restaurante, setrestaurantes] = useState<cardapio>()
+  const [restaurante, setrestaurantes] = useState<Prato>()
 
   useEffect(() => {
     fetch(`https://fake-api-tau.vercel.app/api/efood/restaurantes/${id}`)
@@ -46,7 +51,7 @@ const PaginaDoRestaurante = () => {
         <div className="container">
           <a href="/"><p>restaurantes</p></a>
           <a href="/"><img src={logo} alt="" /></a>
-          <p>0 produto(s) no carrinho</p>
+          <AbreCarrinho onClick={opencarrinho}>{items.length} produto(s) no carrinho</AbreCarrinho>
         </div>
       </S.Header >
       <S.Banner>
@@ -57,7 +62,7 @@ const PaginaDoRestaurante = () => {
       </S.Banner>
       <RenderPratos >
         <Prato className='container'>
-          {restaurante.cardapio.map((prato: any) => <li key={prato.id}><PratosCard img={prato.foto} nomeDoPrato={prato.nome} descricao={prato.descricao} descricaoCompleta={prato.descricao} serveQuantasPessoas={prato.porcao} preço={prato.preco} /></li>)}
+          {restaurante.cardapio.map((prato: Prato) => <li key={prato.id}><PratosCard foto={prato.foto} nome={prato.nome} descricao={prato.descricao} porcao={prato.porcao} preco={prato.preco} cardapio={prato.cardapio} id={prato.id} /></li>)}
         </Prato>
       </RenderPratos>
       <Footer />

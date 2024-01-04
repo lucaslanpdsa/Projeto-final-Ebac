@@ -1,31 +1,38 @@
 import { useState } from 'react'
 import { FechaModal, Pratocard, PratocardExpandido, ButtonAdicionarAoCarrinho, ButtonFechar } from './style'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { toogle } from "../../store/reducers/carrinho"
+import { adicionar } from '../../store/reducers/carrinho'
+import { Prato } from '../../routes/PaginaDoRestaurante'
+import { RootReducer } from '../../store'
 
 type Props = {
-  img: string
-  nomeDoPrato: string
+  cardapio: []
+  foto: string
+  nome: string
   descricao: string
-  descricaoCompleta: string
-  serveQuantasPessoas: string
-  preço: number
+  porcao: string
+  preco: number
+  id: number
 }
 
-export type Prato = {
-  img: string
-  nomeDoPrato: string
-  descricao: string
-  descricaoCompleta: string
-  serveQuantasPessoas: string
-  preço: number
-}
-
-const Card = ({ img, nomeDoPrato, descricao, preço, descricaoCompleta, serveQuantasPessoas }: Props) => {
+const Card = ({ foto, nome, descricao, porcao, preco, cardapio, id }: Props) => {
   const Dispatch = useDispatch()
+  const { items } = useSelector((state: RootReducer) => state.carrinho)
+  const prato: Prato = {
+    cardapio,
+    foto,
+    nome,
+    descricao,
+    porcao,
+    preco,
+    id,
+  }
 
   const opencarrinho = () => {
     Dispatch(toogle())
+    Dispatch(adicionar(prato))
+    console.log(items)
   }
 
   const addCarrinho = () => {
@@ -39,28 +46,28 @@ const Card = ({ img, nomeDoPrato, descricao, preço, descricaoCompleta, serveQua
     <>
       {expandido == true ?
         <Pratocard>
-          <img src={img} />
-          <h3>{nomeDoPrato}</h3>
+          <img src={foto} />
+          <h3>{nome}</h3>
           <p className='descricaoCard'>{descricao}</p>
           <button onClick={() => { setexpandido(!expandido) }}>Adicionar ao carrinho</button>
         </Pratocard> :
         <>
           <FechaModal onClick={() => { setexpandido(!expandido) }}></FechaModal>
           <Pratocard>
-            <img src={img} />
-            <h3>{nomeDoPrato}</h3>
+            <img src={foto} />
+            <h3>{nome}</h3>
             <p className='descricaoCard'>{descricao}</p>
             <button>Mais detalhes</button>
           </Pratocard>
           <PratocardExpandido>
-            <img src={img} />
+            <img src={foto} />
             <div>
-              <h3>{nomeDoPrato}</h3>
+              <h3>{nome}</h3>
               <div className="descricao">
-                <p>{descricaoCompleta}</p> <br />
-                <p>Serve: {serveQuantasPessoas}</p>
+                <p>{descricao}</p> <br />
+                <p>Serve: {porcao}</p>
               </div>
-              <ButtonAdicionarAoCarrinho onClick={addCarrinho}>Adicionar ao carrinho - R${preço.toFixed(2).toString().replace(".", ",")}</ButtonAdicionarAoCarrinho>
+              <ButtonAdicionarAoCarrinho onClick={addCarrinho}>Adicionar ao carrinho - R${preco.toFixed(2).toString().replace(".", ",")}</ButtonAdicionarAoCarrinho>
               <ButtonFechar className='btnfechar' onClick={() => { setexpandido(!expandido) }}>X</ButtonFechar>
             </div>
           </PratocardExpandido>

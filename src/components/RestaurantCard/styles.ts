@@ -2,6 +2,7 @@ import styles from 'styled-components'
 
 export const Card = styles.a`
   margin-bottom: 48px;
+  display: block;
   position: relative;
   font-weight: 700;
 `
@@ -17,7 +18,6 @@ export const Tag = styles.span`
     background-color: rgba(230, 103, 103, 1);
     padding: 6px 4px;
     margin-left: 8px;
-
 `
 
 export const Tags = styles.div`

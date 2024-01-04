@@ -18,6 +18,15 @@ export const Header = styles.header`
   }
 `
 
+
+export const AbreCarrinho = styles.button`
+  cursor: pointer;
+  border: none;
+  background-color:inherit;
+  color: rgba(230, 103, 103, 1);
+  font-weight: 900;
+`
+
 export const Banner = styles.div`
   background-image: url(${imagemDeFundo});
   background-repeat: no-repeat;

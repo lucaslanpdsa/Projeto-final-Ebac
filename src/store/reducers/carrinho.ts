@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { Prato } from '../../components/PratosCard'
+import { Prato } from '../../routes/PaginaDoRestaurante/index'
 
 type carrinhoState = {
   items: Prato[]
@@ -16,7 +16,7 @@ const carrinhoSlice = createSlice({
   initialState,
   reducers: {
     adicionar: (state, action: PayloadAction<Prato>) => {
-      state.items.push(action.payload)
+      state.items = [...state.items, action.payload]
     },
     toogle: (state) => {
       state.isOpen = !state.isOpen
