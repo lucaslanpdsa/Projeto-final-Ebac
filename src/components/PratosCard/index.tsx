@@ -1,10 +1,9 @@
 import { useState } from 'react'
 import { FechaModal, Pratocard, PratocardExpandido, ButtonAdicionarAoCarrinho, ButtonFechar } from './style'
-import { useDispatch, useSelector } from 'react-redux'
+import { useDispatch } from 'react-redux'
 import { toogle } from "../../store/reducers/carrinho"
 import { adicionar } from '../../store/reducers/carrinho'
 import { Prato } from '../../routes/PaginaDoRestaurante'
-import { RootReducer } from '../../store'
 
 type Props = {
   cardapio: []
@@ -18,7 +17,7 @@ type Props = {
 
 const Card = ({ foto, nome, descricao, porcao, preco, cardapio, id }: Props) => {
   const Dispatch = useDispatch()
-  const { items } = useSelector((state: RootReducer) => state.carrinho)
+
   const prato: Prato = {
     cardapio,
     foto,
@@ -29,14 +28,9 @@ const Card = ({ foto, nome, descricao, porcao, preco, cardapio, id }: Props) => 
     id,
   }
 
-  const opencarrinho = () => {
+  const addCarrinho = () => {
     Dispatch(toogle())
     Dispatch(adicionar(prato))
-    console.log(items)
-  }
-
-  const addCarrinho = () => {
-    opencarrinho()
     setexpandido(!expandido)
   }
 
