@@ -36,9 +36,9 @@ position: absolute;
 top: 0;
 left: 0;
 background-color: rgba(0, 0, 0, 0.8);
-height: 100 %;
-width: 100 %;
-opacity: 80 %;
+height: 100%;
+width: 100%;
+opacity: 80%;
 `
 
 export const Form = styled.form`
