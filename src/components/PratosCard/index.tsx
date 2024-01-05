@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { FechaModal, Pratocard, PratocardExpandido, ButtonAdicionarAoCarrinho, ButtonFechar } from './style'
 import { useDispatch } from 'react-redux'
-import { toogle } from "../../store/reducers/carrinho"
+import { abreCarrinho } from "../../store/reducers/carrinho"
 import { adicionar } from '../../store/reducers/carrinho'
 import { Prato } from '../../routes/PaginaDoRestaurante'
 
@@ -29,7 +29,7 @@ const Card = ({ foto, nome, descricao, porcao, preco, cardapio, id }: Props) => 
   }
 
   const addCarrinho = () => {
-    Dispatch(toogle())
+    Dispatch(abreCarrinho())
     Dispatch(adicionar(prato))
     setexpandido(!expandido)
   }

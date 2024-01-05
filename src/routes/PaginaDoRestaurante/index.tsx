@@ -8,7 +8,8 @@ import { AbreCarrinho, Prato, RenderPratos } from './styles'
 import { useDispatch, useSelector } from 'react-redux'
 import { RootReducer } from '../../store'
 import Carrinho from '../../components/Carrinho'
-import { toogle } from '../../store/reducers/carrinho'
+import { abreCarrinho } from '../../store/reducers/carrinho'
+import Entrega from '../../components/Entrega'
 
 export type Prato = {
   cardapio: []
@@ -21,12 +22,12 @@ export type Prato = {
 }
 
 const PaginaDoRestaurante = () => {
-  const { isOpen } = useSelector((state: RootReducer) => state.carrinho)
-  const { items } = useSelector((state: RootReducer) => state.carrinho)
+  const { carrinhoOpen, entregaOpen, items } = useSelector((state: RootReducer) => state.carrinho)
+
   const Dispatch = useDispatch()
 
   const opencarrinho = () => {
-    Dispatch(toogle())
+    Dispatch(abreCarrinho())
   }
 
   const { id } = useParams()
@@ -66,7 +67,8 @@ const PaginaDoRestaurante = () => {
         </Prato>
       </RenderPratos>
       <Footer />
-      {isOpen && <Carrinho />}
+      {carrinhoOpen && <Carrinho />}
+      {entregaOpen && <Entrega />}
     </>
   )
 }

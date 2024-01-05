@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from "react-redux"
 import { Button, CarrinhoContainer, FundoPreto, ImgDoPrato, Lixeira, NomeEPreco, PratoNoCarrinho, Valor } from "./style"
-import { toogle } from "../../store/reducers/carrinho"
+import { fechaCarrinho, abreEntrega } from "../../store/reducers/carrinho"
 import { RootReducer } from "../../store"
 import lixeira from '../../assets/lixeira.png'
 import { remover } from "../../store/reducers/carrinho"
@@ -8,16 +8,17 @@ import { remover } from "../../store/reducers/carrinho"
 const Carrinho = () => {
   const Dispatch = useDispatch()
 
-  const opencarrinho = () => {
-    Dispatch(toogle())
+  const closeCarrinho = () => {
+    Dispatch(fechaCarrinho())
   }
 
   const RemoveDoCarrinho = (id: number) => {
     Dispatch(remover(id))
   }
 
-  const { items } = useSelector((state: RootReducer) => state.carrinho)
-  console.log(items.map((item) => { item.nome }))
+  const abrirEntrega = () => { Dispatch(abreEntrega()) }
+
+  const { items, entregaOpen } = useSelector((state: RootReducer) => state.carrinho)
 
   let valorTotal: number = 0
 
@@ -25,11 +26,11 @@ const Carrinho = () => {
     valorTotal += preco
   }
 
-  console.log(items)
+  console.log(entregaOpen)
 
   return (
     < CarrinhoContainer className="carr" >
-      <FundoPreto onClick={opencarrinho}></FundoPreto>
+      <FundoPreto onClick={() => { closeCarrinho() }}></FundoPreto>
       <aside>
         <ul>
           {items.map((item, index) => {
@@ -50,7 +51,7 @@ const Carrinho = () => {
           <p>Valor total</p>
           <span>R$ {valorTotal.toFixed(2).toString().replace(".", ",")}</span>
         </Valor>
-        <Button >Continuar com a entrega</Button>
+        <Button onClick={() => { abrirEntrega() }}>Continuar com a entrega</Button>
       </aside>
     </CarrinhoContainer >
   )

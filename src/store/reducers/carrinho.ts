@@ -3,12 +3,14 @@ import { Prato } from '../../routes/PaginaDoRestaurante/index'
 
 type carrinhoState = {
   items: Prato[]
-  isOpen: Boolean
+  carrinhoOpen: Boolean
+  entregaOpen: boolean
 }
 
 const initialState: carrinhoState = {
   items: [],
-  isOpen: false,
+  carrinhoOpen: false,
+  entregaOpen: false
 }
 
 const carrinhoSlice = createSlice({
@@ -21,11 +23,24 @@ const carrinhoSlice = createSlice({
     remover: (state, action: PayloadAction<number>) => {
       state.items = state.items.filter(x => x.id !== action.payload)
     },
-    toogle: (state) => {
-      state.isOpen = !state.isOpen
+    abreCarrinho: (state) => {
+      state.entregaOpen = false
+      state.carrinhoOpen = true
+      console.log(state.carrinhoOpen)
+    },
+    fechaCarrinho: (state) => {
+      state.carrinhoOpen = false
+    },
+    abreEntrega: (state) => {
+      state.carrinhoOpen = false
+      state.entregaOpen = true
+      console.log(state.entregaOpen)
+    },
+    fechaEntrega: (state) => {
+      state.entregaOpen = false
     }
   }
 })
 
-export const { adicionar, remover, toogle } = carrinhoSlice.actions
+export const { adicionar, remover, abreCarrinho, fechaCarrinho, abreEntrega, fechaEntrega } = carrinhoSlice.actions
 export default carrinhoSlice.reducer

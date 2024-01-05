@@ -15,7 +15,7 @@ type Props = {
 const RestaurantCard = ({ titulo, destacado, tipo, avaliacao, descricao, capa, id }: Props) => {
 
   return (
-    <Card href='/restaurante'>
+    <Card >
       <div>
         <Capa src={capa} />
         <Tags>
