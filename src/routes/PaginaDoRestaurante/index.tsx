@@ -1,7 +1,6 @@
 import * as S from './styles'
 import logo from '../../assets/logo.png'
 import Footer from '../../components/Footer'
-import { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 import PratosCard from '../../components/PratosCard'
 import { AbreCarrinho, Prato, RenderPratos } from './styles'
@@ -9,7 +8,8 @@ import { useDispatch, useSelector } from 'react-redux'
 import { RootReducer } from '../../store'
 import Carrinho from '../../components/Carrinho'
 import { abreCarrinho } from '../../store/reducers/carrinho'
-import Entrega from '../../components/Entrega'
+import Entrega from '../../components/FormDeEntrega'
+import { useGetRestauranteQuery } from '../../services/api'
 
 export type Prato = {
   cardapio: []
@@ -32,13 +32,8 @@ const PaginaDoRestaurante = () => {
 
   const { id } = useParams()
 
-  const [restaurante, setrestaurantes] = useState<Prato>()
+  const { data: restaurante } = useGetRestauranteQuery(id)
 
-  useEffect(() => {
-    fetch(`https://fake-api-tau.vercel.app/api/efood/restaurantes/${id}`)
-      .then((res) => res.json())
-      .then((res) => setrestaurantes(res))
-  }, [])
 
   if (!restaurante) {
     return (

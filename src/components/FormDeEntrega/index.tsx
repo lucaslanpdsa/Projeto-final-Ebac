@@ -26,33 +26,33 @@ const Carrinho = () => {
         <h3>Entrega</h3>
         <Form>
           <div>
-            <label htmlFor="">Quem irá receber</label>
-            <input type="text" />
+            <label htmlFor="recebedor">Quem irá receber</label>
+            <input type="text" id="recebedor" required max={30} />
           </div>
           <div>
-            <label htmlFor="">Endereço</label>
-            <input type="text" />
+            <label htmlFor="Endereço">Endereço</label>
+            <input type="text" id="Endereço" required max={30} />
           </div>
           <div>
-            <label htmlFor="">Cidade</label>
-            <input type="text" />
+            <label htmlFor="Cidade">Cidade</label>
+            <input type="text" id="Cidade" required max={30} />
           </div>
           <NumeroECEP>
             <div>
-              <label htmlFor="" >CEP</label>
-              <input type="text" />
+              <label htmlFor="CEP" >CEP</label>
+              <input type="number" id="CEP" required max={15} />
             </div>
             <div >
-              <label htmlFor="" >Número</label>
-              <input type="text" />
+              <label htmlFor="Número" >Número</label>
+              <input type="number" id="Número" required max={20} />
             </div>
           </NumeroECEP>
           <div>
-            <label htmlFor="">Complemento (opcional)</label>
-            <input type="text" />
+            <label htmlFor="Complemento">Complemento (opcional)</label>
+            <input type="text" id="Complemento" max={30} />
           </div>
         </Form>
-        <Button >Continuar com o pagamento</Button>
+        <Button type="submit">Continuar com o pagamento</Button>
         <Button onClick={() => { opencarrinho() }}>Voltar para o carrinho</Button>
       </aside>
     </CarrinhoContainer >
