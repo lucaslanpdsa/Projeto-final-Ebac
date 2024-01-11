@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const CarrinhoContainer = styled.div`
+export const Container = styled.div`
   position: fixed;
   width: 100%;
   top: 0;
@@ -18,6 +18,11 @@ export const CarrinhoContainer = styled.div`
     color: rgba(255, 235, 217, 1);
     font-weight: 700;
   }
+
+  .ordemRealizada{
+    font-weight: 400;
+    margin-top: 16px;
+  }
 `
 
 export const Button = styled.button`
@@ -31,6 +36,17 @@ font-weight: 900;
 margin-bottom: 8px;
 `
 
+export const ButtonConcluir = styled.button`
+width: 100%;
+color: rgba(230, 103, 103, 1);
+padding: 4px 0;
+background-color: rgba(255, 235, 217, 1);
+border: none;
+cursor: pointer;
+font-weight: 900;
+margin: 16px 0 8px;
+`
+
 export const FundoPreto = styled.a`
 position: absolute;
 top: 0;
@@ -41,7 +57,7 @@ width: 100%;
 opacity: 80%;
 `
 
-export const Form = styled.form`
+export const Form = styled.div`
   margin: 16px 0;  
   input{
     display: block;
@@ -65,3 +81,15 @@ export const NumeroECEP = styled.div`
     width: 100%;
   }
 `
+
+export const Submit = styled.input`
+  width: 100%;
+  color: rgba(230, 103, 103, 1);
+  padding: 4px 0;
+  background-color: rgba(255, 235, 217, 1);
+  border: none;
+  cursor: pointer;
+  font-weight: 900;
+  margin-bottom: 8px;
+`
+

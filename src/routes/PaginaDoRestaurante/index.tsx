@@ -8,7 +8,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { RootReducer } from '../../store'
 import Carrinho from '../../components/Carrinho'
 import { abreCarrinho } from '../../store/reducers/carrinho'
-import Entrega from '../../components/FormDeEntrega'
+import Entrega from '../../components/Forms'
 import { useGetRestauranteQuery } from '../../services/api'
 
 export type Prato = {
