@@ -26,8 +26,6 @@ const Carrinho = () => {
     valorTotal += preco
   }
 
-  console.log(entregaOpen)
-
   return (
     < CarrinhoContainer className="carr" >
       <FundoPreto onClick={() => { closeCarrinho() }}></FundoPreto>

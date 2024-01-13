@@ -26,7 +26,6 @@ const carrinhoSlice = createSlice({
     abreCarrinho: (state) => {
       state.entregaOpen = false
       state.carrinhoOpen = true
-      console.log(state.carrinhoOpen)
     },
     fechaCarrinho: (state) => {
       state.carrinhoOpen = false
@@ -34,7 +33,6 @@ const carrinhoSlice = createSlice({
     abreEntrega: (state) => {
       state.carrinhoOpen = false
       state.entregaOpen = true
-      console.log(state.entregaOpen)
     },
     fechaEntrega: (state) => {
       state.entregaOpen = false

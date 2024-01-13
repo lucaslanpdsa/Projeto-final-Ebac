@@ -57,7 +57,7 @@ width: 100%;
 opacity: 80%;
 `
 
-export const Form = styled.div`
+export const Form = styled.form`
   margin: 16px 0;  
   input{
     display: block;
