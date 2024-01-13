@@ -18,7 +18,7 @@ const Carrinho = () => {
 
   const abrirEntrega = () => { Dispatch(abreEntrega()) }
 
-  const { items, entregaOpen } = useSelector((state: RootReducer) => state.carrinho)
+  const { items } = useSelector((state: RootReducer) => state.carrinho)
 
   let valorTotal: number = 0
 
