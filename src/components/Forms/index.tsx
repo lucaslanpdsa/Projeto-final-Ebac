@@ -39,33 +39,24 @@ const Carrinho = () => {
       Endereço: '',
       cidade: '',
       CEP: '',
-      numero: 0,
+      numero: '',
       complemento: '',
       nomeDoCartao: '',
       numeroDoCartao: '',
-      CVV: 0,
-      mesDeVencimento: 0,
-      anoDeVencimento: 0,
+      CVV: '',
+      mesDeVencimento: '',
+      anoDeVencimento: '',
     },
-    validationSchema: Yup.object({
-      destinatario: Yup.string().min(8, 'O campo precisa ter pelo menos 8 caracteres').required('Campo obrigatorio'),
-      Endereço: Yup.string().min(8, 'O campo precisa ter pelo menos 8 caracteres').required('Campo obrigatorio'),
-      cidade: Yup.string().min(4, 'O campo precisa ter pelo menos 4 caracteres').required('Campo obrigatorio'),
-      CEP: Yup.string().min(8, 'O campo precisa ter pelo menos 8 caracteres').required('Campo obrigatorio'),
-      number: Yup.number().min(2, 'O campo precisa ter pelo menos 8 caracteres').required('Campo obrigatorio'),
-      nomeDoCartao: Yup.string().min(8, 'O campo precisa ter pelo menos 8 caracteres').required('Campo obrigatorio'),
-      numeroDoCartao: Yup.string().min(16, 'O campo precisa ter pelo menos 16 caracteres').required('Campo obrigatorio'),
-      CVV: Yup.number().min(3, 'O campo precisa ter pelo menos 8 caracteres').required('Campo obrigatorio'),
-      mesDeVencimento: Yup.string().min(1, 'O campo precisa ter pelo menos 8 caracteres').required('Campo obrigatorio'),
-      anoDeVencimento: Yup.string().min(4, 'O campo precisa ter pelo menos 8 caracteres').required('Campo obrigatorio'),
-    }), onSubmit: (values) => {
-      console.log(values + "val")
 
+    onSubmit: (values) => {
+      console.log(values);
+      setPaginaDePagamento(false);
+      setPaginaDeEntrega(false);
+      post();
     }
   })
 
   const post = () => {
-    console.log(form.values.CEP)
     purchase({
       products: {
         "id": 1,
@@ -84,7 +75,7 @@ const Carrinho = () => {
       payment: {
         card: {
           name: form.values.nomeDoCartao,
-          number: form.values.nomeDoCartao,
+          number: form.values.numeroDoCartao,
           code: form.values.CVV,
           expires: {
             month: form.values.mesDeVencimento,
@@ -126,38 +117,38 @@ const Carrinho = () => {
               < FundoPreto onClick={() => { closeEntrega() }}></FundoPreto >
               <aside>
                 <h3>Entrega</h3>
-                <Form onSubmit={form.handleSubmit}>
+                <Form onSubmit={(e) => {
+                  e.preventDefault()
+                  setPaginaDePagamento(true);
+                  setPaginaDeEntrega(false);
+                }}>
                   <div>
                     <label htmlFor="recebedor">Quem irá receber</label>
-                    <input type="text" id="destinatario" name="destinatario" value={form.values.destinatario} onChange={form.handleChange} />
+                    <input type="text" id="destinatario" name="destinatario" required={true} value={form.values.destinatario} onBlur={form.handleBlur} onChange={form.handleChange} />
                   </div>
                   <div>
                     <label htmlFor="Endereço">Endereço</label>
-                    <input type="text" id="Endereço" name="Endereço" value={form.values.Endereço} onChange={form.handleChange} />
+                    <input type="text" id="Endereço" name="Endereço" required={true} value={form.values.Endereço} onBlur={form.handleBlur} onChange={form.handleChange} />
                   </div>
                   <div>
                     <label htmlFor="Cidade">Cidade</label>
-                    <input type="text" id="Cidade" name="cidade" value={form.values.cidade} onChange={form.handleChange} />
+                    <input type="text" id="Cidade" name="cidade" required={true} value={form.values.cidade} onBlur={form.handleBlur} onChange={form.handleChange} />
                   </div>
                   <NumeroECEP>
                     <div>
                       <label htmlFor="CEP" >CEP</label>
-                      <input type="number" id="CEP" name="CEP" value={form.values.CEP} onChange={form.handleChange} />
+                      <input type="number" id="CEP" name="CEP" required={true} value={form.values.CEP} onBlur={form.handleBlur} onChange={form.handleChange} />
                     </div>
                     <div >
                       <label htmlFor="Número" >Número</label>
-                      <input type="number" id="Número" name="numero" value={form.values.numero} onChange={form.handleChange} />
+                      <input type="number" id="Número" name="numero" required={true} value={form.values.numero} onBlur={form.handleBlur} onChange={form.handleChange} />
                     </div>
                   </NumeroECEP>
                   <div>
                     <label htmlFor="Complemento">Complemento (opcional)</label>
-                    <input type="text" id="Complemento" name="complemento" value={form.values.complemento} onChange={form.handleChange} />
+                    <input type="text" id="Complemento" name="complemento" value={form.values.complemento} onBlur={form.handleBlur} onChange={form.handleChange} />
                   </div>
-                  <Button type="button" onClick={() => {
-                    setPaginaDePagamento(true)
-                    setPaginaDeEntrega(false)
-
-                  }} >Continuar com o pagamento</Button>
+                  <Button type="submit" >Continuar com o pagamento</Button>
                   <Button type="button" onClick={() => { opencarrinho() }}>Voltar para o carrinho</Button>
                 </Form>
               </aside>
@@ -171,33 +162,29 @@ const Carrinho = () => {
                 <Form onSubmit={form.handleSubmit}>
                   <div>
                     <label htmlFor="nome">Nome no cartão</label>
-                    <input type="text" id="nome" name="nomeDoCartao" value={form.values.nomeDoCartao} onChange={form.handleChange} />
+                    <input type="text" id="nome" name="nomeDoCartao" required={true} value={form.values.nomeDoCartao} onBlur={form.handleBlur} onChange={form.handleChange} />
                   </div>
                   <NumeroECEP>
                     <div>
                       <label htmlFor="numero">numero</label>
-                      <input type="number" id="numero" name="numeroDoCartao" value={form.values.numeroDoCartao} onChange={form.handleChange} />
+                      <input type="number" id="numero" name="numeroDoCartao" required={true} value={form.values.numeroDoCartao} onChange={form.handleChange} />
                     </div>
                     <div>
                       <label htmlFor="CVV">CVV</label>
-                      <input type="number" id="CVV" name="CVV" value={form.values.CVV} onChange={form.handleChange} />
+                      <input type="number" id="CVV" name="CVV" required={true} value={form.values.CVV} onChange={form.handleChange} />
                     </div>
                   </NumeroECEP>
                   <NumeroECEP>
                     <div>
                       <label htmlFor="Mês" >Mês de vencimento</label>
-                      <input type="number" id="Mês" name="mesDeVencimento" value={form.values.mesDeVencimento} onChange={form.handleChange} />
+                      <input type="number" id="Mês" name="mesDeVencimento" required={true} value={form.values.mesDeVencimento} onChange={form.handleChange} />
                     </div>
                     <div >
                       <label htmlFor="Ano" >Ano de vencimento</label>
-                      <input type="number" id="Ano" name="anoDeVencimento" value={form.values.anoDeVencimento} onChange={form.handleChange} />
+                      <input type="number" id="Ano" name="anoDeVencimento" required={true} value={form.values.anoDeVencimento} onBlur={form.handleBlur} onChange={form.handleChange} />
                     </div>
                   </NumeroECEP>
-                  <input type="submit" value="finalizar pagamento" onClick={() => {
-                    setPaginaDePagamento(false)
-                    setPaginaDeEntrega(false)
-                    post()
-                  }} />
+                  <Button type="submit">finalizar pagamento</Button>
                   <Button type="button" onClick={() => { opencarrinho() }}>Voltar para o carrinho</Button>
                 </Form>
               </aside>

@@ -21,8 +21,8 @@ export const Pratocard = styles.div`
   }
 
   .descricaoCard{
-    height: 88px;
-    overflow-y: hidden;
+    font-size: 14px;
+    height: 135px;
   }
 
   button{

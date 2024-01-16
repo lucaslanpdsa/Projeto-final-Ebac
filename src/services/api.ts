@@ -12,7 +12,7 @@ type DadosDoPedido = {
       description: string
       city: string
       zipCode: string
-      number: number
+      number: string | number
       complement?: string
     }
   }
@@ -20,10 +20,10 @@ type DadosDoPedido = {
     card: {
       name: string
       number: string
-      code: number
+      code: string | number
       expires: {
-        month: number
-        year: number
+        month: string | number
+        year: string | number
       }
     }
   }

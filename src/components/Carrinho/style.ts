@@ -15,6 +15,7 @@ export const CarrinhoContainer = styled.div`
     right: 0;
     position: absolute;
     padding: 32px 8px;
+    overflow-y: auto;  
   }
 `
 
