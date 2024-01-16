@@ -4,7 +4,6 @@ import { abreCarrinho, fechaEntrega } from "../../store/reducers/carrinho"
 import { RootReducer } from "../../store"
 import { useState } from "react"
 import { useFormik } from "formik"
-import * as Yup from 'yup'
 import { usePurchaseMutation } from "../../services/api"
 import { useNavigate } from 'react-router-dom'
 
