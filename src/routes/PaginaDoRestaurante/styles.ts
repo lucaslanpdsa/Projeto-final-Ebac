@@ -27,8 +27,12 @@ export const AbreCarrinho = styles.button`
   font-weight: 900;
 `
 
-export const Banner = styles.div`
-  background-image: url(${imagemDeFundo});
+interface BannerProps {
+  capa: string; // Ou o tipo apropriado para a propriedade capa
+}
+
+export const Banner = styles.div<BannerProps>`
+  background-image: url(${props => props.capa});
   background-repeat: no-repeat;
   background-size: cover;
   height: 280px;

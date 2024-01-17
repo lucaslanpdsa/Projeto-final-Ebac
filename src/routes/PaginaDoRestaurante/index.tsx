@@ -50,12 +50,12 @@ const PaginaDoRestaurante = () => {
           <AbreCarrinho onClick={opencarrinho}>{items.length} produto(s) no carrinho</AbreCarrinho>
         </div>
       </S.Header >
-      <S.Banner>
+      <S.Banner capa={restaurante.capa}>
         <div className="container">
-          <p className='tipo'>Italiana</p>
-          <p className='titulo'>La Dolce Vita Trattoria</p>
+          <p className='tipo'>{restaurante.tipo}</p>
+          <p className='titulo'>{restaurante.titulo}</p>
         </div>
-      </S.Banner>
+      </S.Banner >
       <RenderPratos >
         <Prato className='container'>
           {restaurante.cardapio.map((prato: Prato) => <li key={prato.id}><PratosCard foto={prato.foto} nome={prato.nome} descricao={prato.descricao} porcao={prato.porcao} preco={prato.preco} cardapio={prato.cardapio} id={prato.id} /></li>)}
