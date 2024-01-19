@@ -7,7 +7,7 @@ export const Lista = styles.div`
   column-gap: 80px;
   background-color: rgba(255, 248, 242, 1);
 
-  display: flex;
+  @media screen and (max-width: 480px) {
     grid-template-columns: 1fr;
   }
 `
