@@ -17,6 +17,10 @@ export const Container = styled.div`
     padding: 32px 8px;
     color: rgba(255, 235, 217, 1);
     font-weight: 700;
+
+    @media screen and (max-width: 480px) {
+      width: auto;
+    }
   }
 
   .ordemRealizada{

@@ -23,6 +23,7 @@ export const Pratocard = styles.div`
   .descricaoCard{
     font-size: 14px;
     height: 135px;
+
   }
 
   button{
@@ -60,10 +61,20 @@ export const PratocardExpandido = styles.div`
   left: 0;
   right: 0;
   margin: auto;
+  
+  @media screen and (max-width: 480px) {
+    display: block;
+    width: auto;
+    height: auto; 
+    max-height: 80vh; 
+  }
 
-  img{
-    max-width: 280px
-  };
+  @media screen and (max-width: 1024px) {
+    width: auto;
+    height: fit-content;
+    max-width: 95%;
+    flex-wrap:wrap;
+  }
 
   .descricao{
     color:rgba(255, 255, 255, 1);

@@ -14,6 +14,11 @@ export const Header = styles.header`
     justify-content: space-between;
     padding: 40px 0;
     align-items: center;
+
+    @media screen and (max-width: 480px) {
+      flex-direction: column;
+      gap: 8px;
+    }
   }
 `
 
@@ -69,4 +74,12 @@ export const Prato = styles.ul`
   grid-template-columns: 1fr 1fr 1fr;
   column-gap: 32px;
   row-gap: 32px;
+
+  @media screen and (max-width: 480px) {
+    grid-template-columns: 1fr;
+  }
+
+  @media screen and (min-width:480px) and (max-width: 768px) {
+    grid-template-columns: 1fr 1fr;
+  }
 `

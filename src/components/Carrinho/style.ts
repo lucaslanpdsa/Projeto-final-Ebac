@@ -16,6 +16,10 @@ export const CarrinhoContainer = styled.div`
     position: absolute;
     padding: 32px 8px;
     overflow-y: auto;  
+
+    @media screen and (max-width: 480px) {
+      width: auto;
+    }
   }
 `
 
